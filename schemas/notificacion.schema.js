@@ -9,6 +9,10 @@ const notificacionSchema = new odm.Schema({
     type: String,
     required: true,
   },
+  precio: {
+    type: Number,
+    required: true,
+  },
   lectura: {
     type: Boolean,
     default: false,
@@ -22,35 +26,35 @@ const notificacionSchema = new odm.Schema({
 export const Notificacion = odm.model('notificacion', notificacionSchema);
 
 export const findAll = async function(){
-    console.log("------------schema------------");
+    console.log("------------schema 1------------");
     const results= await Notificacion.find({});
     console.log(results);
     return results;
 }
 
 export const findById = async function(id_notificacion){
-    console.log("------------schema------------");
+    console.log("------------schema 2------------");
     const results= await Notificacion.find({_id:id_notificacion});
     console.log(results);
     return results;
 }
 
 export const findByEmail = async function(email){
-    console.log("------------schema------------");
+    console.log("------------schema 3------------");
     const results= await Notificacion.find({email:email});
     console.log(results);
     return results;
 }
 
 export const create = async function(objNotificacion){
-    console.log("------------schema------------");
+    console.log("------------schema 4------------");
     const results= await Notificacion.create(objNotificacion);
     console.log(results);
     return results;
 }
 
 export const leer = async function(id_notificacion){
-    console.log("------------schema------------");
+    console.log("------------schema 5------------");
     const results= await Notificacion.findByIdAndUpdate(
         id_notificacion, 
         {

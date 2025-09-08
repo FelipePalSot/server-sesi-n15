@@ -2,7 +2,7 @@ import * as snotificacion from "../services/notificacion.service.js";
 import * as auth from "../config/auth.js";
 
 export const findByEmail = async function(req, res) {
-    console.log("------------controller------------");
+    console.log("------------controller 1------------");
    
     try{
         const email= req.params.id;
@@ -16,7 +16,7 @@ export const findByEmail = async function(req, res) {
 }
 
 export const create = async function(req, res) {
-    console.log("------------controller------------");
+    console.log("------------controller 2------------");
    
     try{
         const objNotificacion= req.body;
@@ -28,6 +28,20 @@ export const create = async function(req, res) {
         res.status(500).json({"error":"Error ingresando registros"});
     }
 }
+
+export const leer = async function(req, res) {
+    console.log("------------controller 3------------");
+    try{
+        const id_notificacion = req.params.id;
+        console.log(id_notificacion);
+        const result = await snotificacion.leer(id_notificacion);
+        const doc = Array.isArray(result) ? result[0] : result; // tu schema.findById devuelve array
+        res.json(doc || {});
+    }catch(error){
+        console.log(error);
+        res.status(500).json({"error":"Error actualizando registro"});
+    }
+};
 
 /*
 export const update = async function(req, res) {

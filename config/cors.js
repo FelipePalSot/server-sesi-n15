@@ -4,7 +4,7 @@ import {FRONTEND_URL} from "../utils/constantes.js";
 console.log("CORS: "+FRONTEND_URL);
 const corsOptions = {
     origin: FRONTEND_URL,
-    methods: ['GET', 'POST', 'PUT'],
+    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
 };
